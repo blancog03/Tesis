@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresa Agropecuaria Militar Granma</title>
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/Font-Awesome/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--primary-color);">
+            <div class="container-fluid">
+                <a class="navbar-brand logo" href="index.html">
+                    EAMG
+                    <small>Empresa Agropecuaria Militar Granma</small>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+                <li class="nav-item">
+                    <button id="openCartBtn" type="button" class="btn btn-outline-light ms-3 position-relative">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none">
+                                    0
+                                </span>
+                            </button>
+                            <a href="login.html" class="btn btn-outline-light ms-3">
+                        <i class="fas fa-user"></i> Iniciar Sesión
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="hero">
+            <div class="hero-content">
+            <h1>Calidad y Tradición del Campo Cubano</h1>
+            <p class="lead">Productos frescos y de confianza, directamente de nuestra tierra a su mesa.</p>
+            <a href="#categories" class="btn btn-primary btn-lg mt-3">Ver Productos</a>
+        </div>
+        </section>
+
+    <main>
+        <section id="about" class="fade-in-section">
+            <h3>Sobre Nuestra Empresa</h3>
+            <p>La Empresa Agropecuaria Militar Granma juega un papel crucial en el desarrollo económico de la nación. Nos dedicamos a la agricultura, ganadería, pesca y otras ramas, garantizando productos de alta calidad para el mercado cubano. Nuestros procesos combinan la tradición del campo con la eficiencia y la disciplina.</p>
+        </section>
+
+        <!-- Sección de Cita -->
+        <section class="quote-section py-5">
+            <div class="container text-center">
+                <blockquote class="blockquote styled-quote">
+                    <p>"Una Revolución que no es capaz de alimentar a su pueblo, no es Revolución. Y para alimentar al pueblo, hay que darle la tierra a quien la trabaja."</p>
+                    <footer class="blockquote-footer">Fidel Castro</footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <section id="categories" class="py-5 bg-light fade-in-section">
+            <div class="container">
+                <h3 class="text-center mb-4">Nuestras Categorías</h3>
+                <div id="category-container" class="row">
+                    <!-- Las categorías se cargarán aquí -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Compromiso -->
+        <section id="commitment" class="py-5 fade-in-section">
+            <div class="container text-center">
+                <h3 class="mb-4">Nuestro Compromiso</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <i class="fas fa-leaf fa-3x mb-3"></i>
+                            <h4>Producción Sostenible</h4>
+                            <p>Prácticas agrícolas que respetan el medio ambiente y garantizan la calidad.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <i class="fas fa-check-circle fa-3x mb-3"></i>
+                            <h4>Frescura Garantizada</h4>
+                            <p>Del campo a su mesa en el menor tiempo posible, conservando todo el sabor.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <i class="fas fa-users fa-3x mb-3"></i>
+                            <h4>Apoyo a la Comunidad</h4>
+                            <p>Comprometidos con el desarrollo local y la seguridad alimentaria del país.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Testimonios -->
+        <section id="testimonials" class="py-5 bg-light fade-in-section">
+            <div class="container">
+                <h3 class="text-center mb-4">Lo que dicen nuestros clientes</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="testimonial-card">
+                            <p>"Los productos más frescos que he encontrado. La calidad de la carne y los vegetales es insuperable. ¡Totalmente recomendados!"</p>
+                            <cite>- Cliente Satisfecho</cite>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="testimonial-card">
+                            <p>"Excelente servicio y atención. Hice mi pedido en línea y todo llegó a tiempo y en perfectas condiciones. Muy profesionales."</p>
+                            <cite>- Cliente Fiel</cite>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto -->
+        <section id="contact" class="py-5 fade-in-section">
+            <div class="container">
+                <h3 class="text-center mb-4">Contáctenos</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Información de Contacto</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Dirección: Granma, Cuba</p>
+                        <p><i class="fas fa-phone"></i> Teléfono: +53 123 456 789</p>
+                        <p><i class="fas fa-envelope"></i> Email: contacto@eamgranma.cu</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Envíenos un Mensaje</h4>
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Su Nombre">
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Su Correo">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="3" placeholder="Su Mensaje"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Empresa Agropecuaria Militar Granma. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Cart Modal & Toast -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Tu Carrito de Compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems"></div>
+                </div>
+                <div class="modal-footer">
+                    <strong>Total: $<span id="cartTotal">0.00</span></strong>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="checkoutBtn">Proceder al Pago</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
+        <div id="cartToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Producto Añadido</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">¡El producto se ha añadido a tu carrito!</div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/home.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

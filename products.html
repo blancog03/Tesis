@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Productos - Empresa Agropecuaria Militar Granma</title>
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/Font-Awesome/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--primary-color);">
+            <div class="container-fluid">
+                <a class="navbar-brand logo" href="index.html">
+                    EAMG
+                    <small>Empresa Agropecuaria Militar Granma</small>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="products.html">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+                        <li class="nav-item">
+                            <button id="openCartBtn" type="button" class="btn btn-outline-light ms-3 position-relative">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none">
+                                    0
+                                </span>
+                            </button>
+                            <a href="login.html" class="btn btn-outline-light ms-3">
+                                <i class="fas fa-user"></i> Iniciar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-5">
+        <h2 class="text-center mb-4">Catálogo de Productos</h2>
+        
+        <!-- Barra de Búsqueda y Filtros -->
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <input type="text" id="search-input" class="form-control" placeholder="Buscar producto...">
+            </div>
+            <div class="col-md-4">
+                <select id="category-filter" class="form-select">
+                    <option value="all">Todas las categorías</option>
+                    <!-- Categorías se cargarán aquí -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Contenedor de Productos -->
+        <div id="product-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            <!-- Los productos se cargarán aquí dinámicamente -->
+        </div>
+    </main>
+
+    <footer class="text-center p-3 mt-5 bg-dark text-white">
+        <p>&copy; 2025 Empresa Agropecuaria Militar Granma. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Cart Modal & Toast -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Tu Carrito de Compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems"></div>
+                </div>
+                <div class="modal-footer">
+                    <strong>Total: $<span id="cartTotal">0.00</span></strong>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="checkoutBtn">Proceder al Pago</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
+        <div id="cartToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Producto Añadido</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">¡El producto se ha añadido a tu carrito!</div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

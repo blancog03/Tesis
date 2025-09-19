@@ -1,0 +1,315 @@
+:root {
+    --primary-color: #2E7D32; /* Verde oscuro (Original) */
+    --secondary-color: #4CAF50; /* Verde más claro (Original) */
+    --accent-color: #FFC107; /* Amarillo (Original) */
+    --text-color: #333;
+    --bg-color: #f4f4f4;
+    --card-bg: #fff;
+}
+
+body {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-weight: 300; /* Letra más fina */
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Para el desplazamiento suave */
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky; /* Fija el nav en la parte superior */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+/* --- Estilo del Logo --- */
+.logo {
+    font-size: 1.8rem; /* Tamaño grande para EAMG */
+    font-weight: bold;
+    line-height: 1;
+}
+
+.logo small {
+    display: block;
+    font-size: 0.65rem; /* Tamaño pequeño para el nombre completo */
+    font-weight: 300;
+    margin-top: -5px; /* Ajuste para que esté más cerca */
+}
+
+
+
+main {
+    max-width: 1200px;
+    /* Se elimina el margen superior para que no haya espacio extra debajo de la sección hero */
+    margin: 0 auto 2rem auto;
+    padding: 0 2rem;
+}
+
+.hero {
+    height: 100vh;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 60%), url('../media/img/hero8.png');
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+    align-items: center;
+    color: white;
+}
+
+.hero-content {
+    padding: 2rem 4rem;
+    max-width: 600px; /* Limita el ancho del texto */
+    animation: slideInUp 1s ease-out forwards;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-color);
+}
+
+#about {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: var(--card-bg);
+}
+
+/* --- Estilos de Botones Personalizados --- */
+.btn-primary, .btn-success {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover, .btn-success:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+#product-catalog h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card-content {
+    padding: 1.5rem;
+}
+
+.product-card h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.product-category {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+/* --- Estilos para Nuevas Secciones --- */
+.feature-box i {
+    color: var(--primary-color);
+}
+
+.testimonial-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+.testimonial-card cite {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+    text-align: right;
+    color: var(--secondary-color);
+}
+
+#contact p i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+/* --- Transiciones y Animaciones --- */
+.btn, a, .card {
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* Animación de Fade-in al desplazar */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Estilos para la Página "Nosotros" --- */
+.timeline-section {
+    overflow: hidden; /* Evita que las imágenes se salgan */
+}
+
+.timeline-image-left, .timeline-image-right {
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+}
+
+.timeline-image-left {
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+}
+
+.timeline-image-right {
+    border-top-left-radius: 150px;
+    border-bottom-left-radius: 150px;
+}
+
+.timeline-section h3 {
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.timeline-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.timeline-section p {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* --- Estilos para la Cita --- */
+.quote-section {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.styled-quote p {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 300;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.styled-quote .blockquote-footer {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Estilo para unificar el tamaño de las imágenes de las tarjetas */
+.card-img-top {
+    height: 200px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    background-color: #333;
+    color: white;
+}
+
+/* --- Media Query para Responsividad en Móviles --- */
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll; /* Desactiva el efecto parallax en móviles para mejor rendimiento y visualización */
+        background-size: cover; /* Asegura que la imagen se vea completa en móviles */
+        background-color: #a3ac9b; /* Añade fondo para el efecto letterbox en móvil */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+    }
+
+    .hero-content {
+        padding: 1rem 2rem; /* Reduce el padding en móviles */
+    }
+}
