@@ -31,15 +31,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    const populateCategories = () => {
+        const categories = [...new Set(window.products.map(p => p.category))];
+        categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = category;
+            categoryFilter.appendChild(option);
+        });
+    };
+
     const filterAndRender = () => {
         let filtered = [...window.products];
         const category = categoryFilter.value;
         const search = searchInput.value.toLowerCase();
 
-        if (category) {
+        // Filtrar por categoría
+        if (category && category !== 'all') {
             filtered = filtered.filter(p => p.category === category);
         }
 
+        // Filtrar por texto de búsqueda
         if (search) {
             filtered = filtered.filter(p => 
                 p.name.toLowerCase().includes(search) || 
@@ -62,5 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (searchInput) searchInput.addEventListener('input', filterAndRender);
 
     // Carga inicial
+    populateCategories();
     renderProducts(window.products);
 });

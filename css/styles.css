@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #2E7D32; /* Verde oscuro (Original) */
-    --secondary-color: #4CAF50; /* Verde más claro (Original) */
+    --primary-color: rgb(4, 105, 46); /* Verde oscuro (Original) */
+    --secondary-color: #051013; /* Verde más claro (Original) */
     --accent-color: #FFC107; /* Amarillo (Original) */
     --text-color: #333;
     --bg-color: #f4f4f4;
@@ -31,16 +31,28 @@ header {
 
 /* --- Estilo del Logo --- */
 .logo {
-    font-size: 1.8rem; /* Tamaño grande para EAMG */
-    font-weight: bold;
     line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo-main {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    display: block;
 }
 
 .logo small {
     display: block;
-    font-size: 0.65rem; /* Tamaño pequeño para el nombre completo */
+    font-size: 0.65rem;
     font-weight: 300;
-    margin-top: -5px; /* Ajuste para que esté más cerca */
+    margin-top: -2px;
+    color: #f0f0f0;
 }
 
 
@@ -53,18 +65,45 @@ main {
 }
 
 .hero {
+    position: relative; /* Necesario para la superposición */
     height: 100vh;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 60%), url('../media/img/hero8.png');
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
     display: flex;
-    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+    justify-content: flex-start;
     align-items: center;
     color: white;
+    overflow: hidden; /* Para contener el video */
+}
+
+#hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.952), rgba(0, 0, 0, 0.384));
+    z-index: 1;
 }
 
 .hero-content {
+    position: relative; /* Asegura que el contenido esté sobre la superposición */
+    z-index: 2;
     padding: 2rem 4rem;
     max-width: 600px; /* Limita el ancho del texto */
     animation: slideInUp 1s ease-out forwards;
@@ -229,19 +268,17 @@ main {
 }
 
 .timeline-image-left, .timeline-image-right {
-    min-height: 400px;
+    min-height: 450px;
     background-size: cover;
     background-position: center;
+    border-radius: 25px; /* Bordes redondeados */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Sombra suave */
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Transición suave */
 }
 
-.timeline-image-left {
-    border-top-right-radius: 150px;
-    border-bottom-right-radius: 150px;
-}
-
-.timeline-image-right {
-    border-top-left-radius: 150px;
-    border-bottom-left-radius: 150px;
+.timeline-image-left:hover, .timeline-image-right:hover {
+    transform: scale(1.03); /* Efecto de zoom al pasar el cursor */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
 .timeline-section h3 {
@@ -260,10 +297,23 @@ main {
     background-color: var(--primary-color);
 }
 
+.timeline-section .p-5 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .timeline-section p {
     font-family: 'Lora', serif;
     font-size: 1.1rem;
     line-height: 1.8;
+}
+
+/* Separador visual entre secciones */
+.timeline-section:not(:last-of-type) {
+    margin-bottom: 3rem; /* Aumenta el espacio entre secciones */
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 /* --- Estilos para la Cita --- */
