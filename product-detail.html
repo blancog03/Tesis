@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestros Productos - Empresa Agropecuaria Militar Granma</title>
+    <title>Detalle del Producto - Empresa Agropecuaria Militar Granma</title>
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/Font-Awesome/css/all.min.css">
@@ -27,7 +27,7 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="products.html">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="products.html">Productos</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
                         <li class="nav-item">
                             <button id="openCartBtn" type="button" class="btn btn-outline-light ms-3 position-relative">
@@ -47,24 +47,13 @@
     </header>
 
     <main class="container mt-5">
-        <h2 class="text-center mb-4">Catálogo de Productos</h2>
-        
-        <!-- Barra de Búsqueda y Filtros -->
-        <div class="row mb-4">
-            <div class="col-md-8">
-                <input type="text" id="search-input" class="form-control" placeholder="Buscar producto...">
+        <div id="product-detail-container" class="row">
+            <!-- El contenido del producto se cargará aquí dinámicamente -->
+            <div class="col-12 text-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Cargando...</span>
+                </div>
             </div>
-            <div class="col-md-4">
-                <select id="category-filter" class="form-select">
-                    <option value="all">Todas las categorías</option>
-                    <!-- Categorías se cargarán aquí -->
-                </select>
-            </div>
-        </div>
-
-        <!-- Contenedor de Productos -->
-        <div id="product-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-            <!-- Los productos se cargarán aquí dinámicamente -->
         </div>
     </main>
 
@@ -72,7 +61,7 @@
         <p>&copy; 2025 Empresa Agropecuaria Militar Granma. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Cart Modal & Toast -->
+    <!-- Cart Modal & Toast (reutilizado de otras páginas) -->
     <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -102,8 +91,8 @@
     </div>
 
     <script src="js/data.js"></script>
-    <script src="js/products.js"></script>
     <script src="js/cart.js"></script>
+    <script src="js/detail.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/animations.js"></script>
 </body>

@@ -15,13 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const productCol = document.createElement('div');
             productCol.className = 'col';
             productCol.innerHTML = `
-                <div class="card h-100">
-                    <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">${product.name}</h5>
-                        <p class="card-text flex-grow-1">${product.description}</p>
-                        <p class="fw-bold">$${product.price.toFixed(2)} CUP</p>
-                    </div>
+                <div class="card h-100 product-card">
+                    <a href="product-detail.html?id=${product.id}" class="text-decoration-none text-dark d-block">
+                        <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">${product.name}</h5>
+                            <p class="card-text flex-grow-1">${product.description}</p>
+                            <p class="fw-bold">$${product.price.toFixed(2)} CUP</p>
+                        </div>
+                    </a>
                     <div class="card-footer">
                         <button class="btn btn-primary w-100 add-to-cart-btn" data-product-id="${product.id}">Añadir al carrito</button>
                     </div>

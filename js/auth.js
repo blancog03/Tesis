@@ -20,8 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 users.push({ username, email, password });
                 localStorage.setItem('users', JSON.stringify(users));
-                alert('¡Registro exitoso! Ahora puedes iniciar sesión.');
-                window.location.href = 'login.html';
+                
+                // Mostrar animación del tractor
+                window.showTractorAnimation(
+                    '¡Registro Exitoso!',
+                    `Bienvenido ${username} a la familia EAMG`
+                );
+                
+                // Redirigir después de la animación
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 4500);
             }
         });
     }
@@ -38,8 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
             if (user) {
                 // Simulamos una sesión guardando el usuario logueado
                 localStorage.setItem('loggedInUser', JSON.stringify(user));
-                alert(`¡Bienvenido, ${user.username}!`);
-                window.location.href = 'index.html';
+                
+                // Mostrar animación del tractor
+                window.showTractorAnimation(
+                    `¡Bienvenido, ${user.username}!`,
+                    'Preparando tu experiencia agropecuaria...'
+                );
+                
+                // Redirigir después de la animación
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 4500);
             } else {
                 alert('Correo o contraseña incorrectos.');
             }

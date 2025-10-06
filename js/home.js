@@ -30,4 +30,95 @@ document.addEventListener('DOMContentLoaded', () => {
             categoryContainer.appendChild(categoryCard);
         });
     }
+
+    // --- Cargar Productos Destacados ---
+    const featuredContainer = document.getElementById('featured-products-container');
+    if (featuredContainer && window.products) {
+        const featuredProducts = window.products.slice(0, 4); // Tomar los primeros 4
+
+        featuredProducts.forEach(product => {
+            const productCol = document.createElement('div');
+            productCol.className = 'col';
+            // Usamos la misma estructura de tarjeta que en products.js
+            productCol.innerHTML = `
+                <div class="card h-100 product-card">
+                    <a href="product-detail.html?id=${product.id}" class="text-decoration-none text-dark d-block">
+                        <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">${product.name}</h5>
+                            <p class="fw-bold mt-auto">$${product.price.toFixed(2)} CUP</p>
+                        </div>
+                    </a>
+                    <div class="card-footer">
+                        <button class="btn btn-primary w-100 add-to-cart-btn" data-product-id="${product.id}">Añadir al carrito</button>
+                    </div>
+                </div>
+            `;
+            featuredContainer.appendChild(productCol);
+        });
+
+        // Delegación de eventos para los botones de añadir al carrito
+        featuredContainer.addEventListener('click', (event) => {
+            const button = event.target.closest('.add-to-cart-btn');
+            if (button) {
+                const productId = parseInt(button.dataset.productId, 10);
+                window.addToCart(productId);
+            }
+        });
+    }
+
+    // --- Validación del Formulario de Contacto ---
+    const contactForm = document.querySelector('#contact form');
+    if (contactForm) {
+        contactForm.setAttribute('novalidate', ''); // Desactivar validación nativa del navegador
+
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const nameInput = contactForm.querySelector('input[placeholder="Su Nombre"]');
+            const emailInput = contactForm.querySelector('input[placeholder="Su Correo"]');
+            const messageInput = contactForm.querySelector('textarea[placeholder="Su Mensaje"]');
+            let isValid = true;
+
+            // Función para validar email
+            const validateEmail = (email) => {
+                const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(email).toLowerCase());
+            };
+
+            // Validar nombre
+            if (nameInput.value.trim() === '') {
+                nameInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                nameInput.classList.remove('is-invalid');
+                nameInput.classList.add('is-valid');
+            }
+
+            // Validar email
+            if (emailInput.value.trim() === '' || !validateEmail(emailInput.value)) {
+                emailInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                emailInput.classList.remove('is-invalid');
+                emailInput.classList.add('is-valid');
+            }
+
+            // Validar mensaje
+            if (messageInput.value.trim() === '') {
+                messageInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                messageInput.classList.remove('is-invalid');
+                messageInput.classList.add('is-valid');
+            }
+
+            if (isValid) {
+                alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+                contactForm.reset();
+                nameInput.classList.remove('is-valid');
+                emailInput.classList.remove('is-valid');
+                messageInput.classList.remove('is-valid');
+            }
+        });
+    }
 });
